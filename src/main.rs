@@ -29,10 +29,10 @@ fn main() {
     let output = output_path.with_extension("png");
 
     // 画像を保存
-    if let Err(e) = img.save_with_format(output, ImageFormat::Png) {
+    if let Err(e) = img.save_with_format(&output, ImageFormat::Png) {
         eprintln!("Error: {}", e);
         process::exit(1);
     }
 
-    println!("Image saved to {}.png", output_path.display());
+    println!("Image saved to {}", output.display());
 }
