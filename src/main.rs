@@ -26,12 +26,13 @@ fn main() {
 
     // 出力先のパス
     let output_path = Path::new(&args.output);
+    let output = output_path.with_extension("png");
 
     // 画像を保存
-    if let Err(e) = img.save_with_format(&output_path, ImageFormat::Png) {
+    if let Err(e) = img.save_with_format(output, ImageFormat::Png) {
         eprintln!("Error: {}", e);
         process::exit(1);
     }
 
-    println!("Image saved to {}", output_path.display());
+    println!("Image saved to {}.png", output_path.display());
 }
